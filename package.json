@@ -1,0 +1,28 @@
+{
+  "name": "listings",
+  "version": "1.0.0",
+  "description": "listings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlogan7202/listings.git"
+  },
+  "keywords": [
+    "jobs",
+    "job",
+    "listings"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rlogan7202/listings/issues"
+  },
+  "homepage": "https://github.com/rlogan7202/listings#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.81.0"
+  }
+}
