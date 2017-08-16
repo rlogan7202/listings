@@ -1,5 +1,5 @@
 {
-  "name": "govjobs",
+  "name": "listings",
   "version": "1.0.0",
   "description": "test web scraping",
   "main": "server.js",
