@@ -1,28 +1,19 @@
 {
-  "name": "listings",
+  "name": "govjobs",
   "version": "1.0.0",
-  "description": "listings",
-  "main": "index.js",
+  "description": "test web scraping",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rlogan7202/listings.git"
-  },
-  "keywords": [
-    "jobs",
-    "job",
-    "listings"
-  ],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rlogan7202/listings/issues"
-  },
-  "homepage": "https://github.com/rlogan7202/listings#readme",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "request": "^2.81.0"
-  }
+    "cheerio": "latest",
+    "elasticsearch": "^13.3.1",
+    "express": "latest",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  },
+  "private": true
 }
