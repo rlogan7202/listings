@@ -33,36 +33,49 @@ urls.filter(function(site) {
                 
                 var location = anchor.text().trim();
 
+                var childLocationDiv = 'div.location-' + location.replace(" ", "");
+                var childLocations = $('li.criteria-detail-container', childLocationDiv);
+
+                $(childLocationDiv).find('li.criteria-container').each(function() {
+                    var childAnchor = $('a.criteria-detail-container-link', childLocations);
+                    
+                    var childUrl = childAnchor.attr('href');
+                    console.log(childAnchor);
+                });
+
+                
                 var anchor2 = $('a.criteria-detail-container-link', this);
+
                 var url = anchor2.attr('href');
 
                 if(url) {
                     var metadata = {
                         id: location,
                         url: url,
-                        location: location
+                        location: location,
+                        childLocations: childLocations
                     }
                     //var location = $('div.ui.li.a', this);
 
-                    console.log(metadata);
+                    //console.log(metadata);
 
 
-                    var elasticsearch = require('elasticsearch');
+                    // var elasticsearch = require('elasticsearch');
                     
-                    var elasticClient = new elasticsearch.Client({
-                        host: 'localhost:9200',
-                        log: 'info'
-                    });
-                    return elasticClient.index({
-                        id: metadata.id,
-                        index: 'listings',
-                        type: 'location',
-                        body: metadata
-                    }).then(function (response) {
-                        console.log(response.result + ' ' + response._id + ' ' + response._version);
-                      }, function (error) {
-                        console.trace(error.message);
-                      });
+                    // var elasticClient = new elasticsearch.Client({
+                    //     host: 'localhost:9200',
+                    //     log: 'info'
+                    // });
+                    // return elasticClient.index({
+                    //     id: metadata.id,
+                    //     index: 'listings',
+                    //     type: 'location',
+                    //     body: metadata
+                    // }).then(function (response) {
+                    //     console.log(response.result + ' ' + response._id + ' ' + response._version);
+                    //   }, function (error) {
+                    //     console.trace(error.message);
+                    //   });
                 }
         });
     });
