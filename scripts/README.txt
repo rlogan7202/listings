@@ -1,4 +1,7 @@
 elasticsearch-6.0.0-beta1\bin
+
+https://github.com/elastic/elasticsearch/issues/26261
+
     es won't start:
     
     elasticsearch-env.bat
