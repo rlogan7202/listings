@@ -30,8 +30,9 @@ function deleteIndex() {
 exports.deleteIndex = deleteIndex;
 
 function create(book) {
+    console.log(book.identifier);
     return elasticClient.index({
-        id: book.id,
+        id: book.identifier,
         index: indexName,
         type: indexType,
         body: book
