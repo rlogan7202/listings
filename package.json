@@ -12,6 +12,7 @@
     "cheerio": "latest",
     "elasticsearch": "^13.3.1",
     "express": "latest",
+    "promise": "^8.0.1",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
   },

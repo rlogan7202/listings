@@ -2,6 +2,7 @@ var express = require('express');
 var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
+var wolf = require('./hn.js');
 var app     = express();
 
 app.get('/hn', function(req, res) {
@@ -84,7 +85,7 @@ app.get('/gov', function(req, res) {
 
 })
 
-app.get('/git', function(req, res) {
+app.get('/', function(req, res) {
 
     url = 'https://github.com/showcases';
     

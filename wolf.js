@@ -2,32 +2,34 @@
 
 var cheerio = require('cheerio');
 var request = require('request');
+var common = require("./common.js");
 
-request({
-    method: 'GET',
-    url: 'http://wolfstreet.com'
-}, function(err, response, body) {
-    if (err) return console.error(err);
+var url = "http://wolfstreet.com";
 
-    // Tell Cherrio to load the HTML
-    $ = cheerio.load(body);
+common.requestp(url, true).then(function (data) {
+    console.log("entering with url:  %s", url);
+
+    $ = cheerio.load(data);
     $('div.row').find('article').each(function() {
-            //console.log($(this));
-            var header = $('h1.entry-title', this);
-            var anchor = $('a', header);
-            var anchorTitle = anchor.text().trim();
-            var anchorURL = anchor.attr('href');
+        //console.log($(this));
+        var header = $('h1.entry-title', this);
+        var anchor = $('a', header);
+        var anchorTitle = anchor.text().trim();
+        var anchorURL = anchor.attr('href');
 
-            var excerpt = $('div.excerpt', this);
-            var excerptText = $('p', header).text().trim();
-            // var p = $('p', this).text();
-            var metadata = {
-                title: anchorTitle,
-                url: anchorURL,
-                description: excerptText
-                
-            }
+        var excerpt = $('div.excerpt', this);
+        var excerptText = $('p', excerpt).text().trim();
+        // var p = $('p', this).text();
+        var metadata = {
+            title: anchorTitle,
+            url: anchorURL,
+            description: excerptText
+        }
 
-            console.log(metadata);
+        console.log(metadata);
     });
+
+}, function (err) {
+    console.error("error message: %s, url: %s", err.message, url);
+    console.log("status code: %j", err.res.statusCode);
 });
