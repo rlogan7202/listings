@@ -53,7 +53,8 @@ app.get('/gov', function(req, res) {
             console.log(url);
             var $ = cheerio.load(html);
             var parsedResults = [];
-
+            
+            // <li class="job-item" data-job-id="1640002-0">
             $('#job-list-container > div.search-results-grid-container > table > tbody').find('tr').each(function(i, element) {
                 // var a = $(this).prev();
                 // var rank = a.parent().parent().text();

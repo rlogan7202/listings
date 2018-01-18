@@ -57,7 +57,7 @@ urls.filter(function(site) {
                     }
                     //var location = $('div.ui.li.a', this);
 
-                    //console.log(metadata);
+                    console.log(metadata);
 
 
                     // var elasticsearch = require('elasticsearch');
